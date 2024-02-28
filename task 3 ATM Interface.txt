@@ -1,0 +1,106 @@
+import java.util.Scanner;
+
+public class ATMInterface {
+
+    private static double balance = 1000;  // Initial balance for demonstration purposes
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Welcome to the ATM!");
+
+        while (true) {
+            System.out.println("\nSelect an option:");
+            System.out.println("1. Check Balance");
+            System.out.println("2. Withdraw Money");
+            System.out.println("3. Deposit Money");
+            System.out.println("4. Exit");
+
+            int choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    checkBalance();
+                    break;
+                case 2:
+                    withdrawMoney();
+                    break;
+                case 3:
+                    depositMoney();
+                    break;
+                case 4:
+                    System.out.println("Thank you for using the ATM. Goodbye!");
+                    scanner.close();
+                    System.exit(0);
+                default:
+                    System.out.println("Invalid option. Please try again.");
+            }
+        }
+    }
+
+    private static void checkBalance() {
+        System.out.println("Your balance is: $" + balance);
+    }
+
+    private static void withdrawMoney() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the amount to withdraw: $");
+        double amount = scanner.nextDouble();
+
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrawal successful. Remaining balance: $" + balance);
+        } else {
+            System.out.println("Invalid amount or insufficient funds. Please try again.");
+        }
+    }
+
+    private static void depositMoney() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the amount to deposit: $");
+        double amount = scanner.nextDouble();
+
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposit successful. New balance: $" + balance);
+        } else {
+            System.out.println("Invalid amount. Please try again.");
+        }
+    }
+}
+OUTPUT:
+Welcome to the ATM!
+
+Select an option:
+1. Check Balance
+2. Withdraw Money
+3. Deposit Money
+4. Exit
+1
+Your balance is: $1000.0
+
+Select an option:
+1. Check Balance
+2. Withdraw Money
+3. Deposit Money
+4. Exit
+3
+Enter the amount to deposit: $30000
+Deposit successful. New balance: $31000.0
+
+Select an option:
+1. Check Balance
+2. Withdraw Money
+3. Deposit Money
+4. Exit
+2
+Enter the amount to withdraw: $2654
+Withdrawal successful. Remaining balance: $28346.0
+
+Select an option:
+1. Check Balance
+2. Withdraw Money
+3. Deposit Money
+4. Exit
+4
+Thank you for using the ATM. Goodbye!

@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class NumberGame {
+
+    public static void main(String[] args) {
+        int randomNumber = (int) (Math.random() * 100) + 1;
+
+        System.out.println("Welcome to the Number Guessing Game!");
+        System.out.println("Try to guess the number between 1 and 100.");
+
+        Scanner scanner = new Scanner(System.in);
+        int userGuess;
+        boolean hasGuessedCorrectly = false;
+
+        while (!hasGuessedCorrectly) {
+            System.out.print("Enter your guess: ");
+            userGuess = scanner.nextInt();
+
+            if (userGuess == randomNumber) {
+                System.out.println("Congratulations! You guessed the correct number.");
+                hasGuessedCorrectly = true;
+            } else if (userGuess < randomNumber) {
+                System.out.println("Try again. The correct number is greater.");
+            } else {
+                System.out.println("Try again. The correct number is smaller.");
+            }
+        }
+
+        scanner.close();
+    }
+}
+OUTPUT:
+Welcome to the Number Guessing Game!
+Try to guess the number between 1 and 100.
+Enter your guess: 50
+Try again. The correct number is smaller.
+Enter your guess: 40
+Try again. The correct number is smaller.
+Enter your guess: 30
+Try again. The correct number is smaller.
+Enter your guess: 25
+Try again. The correct number is smaller.
+Enter your guess: 20
+Try again. The correct number is smaller.
+Enter your guess: 15
+Try again. The correct number is smaller.
+Enter your guess: 10
+Congratulations! You guessed the correct number.

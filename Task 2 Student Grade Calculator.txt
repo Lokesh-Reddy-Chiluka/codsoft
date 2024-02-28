@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class StudentGradeCalculator {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Student Grade Calculator");
+
+        System.out.print("Enter the score for Subject 1: ");
+        double subject1 = scanner.nextDouble();
+
+        System.out.print("Enter the score for Subject 2: ");
+        double subject2 = scanner.nextDouble();
+
+        System.out.print("Enter the score for Subject 3: ");
+        double subject3 = scanner.nextDouble();
+
+        double average = (subject1 + subject2 + subject3) / 3;
+
+        char grade;
+        if (average >= 90) {
+            grade = 'A';
+        } else if (average >= 80) {
+            grade = 'B';
+        } else if (average >= 70) {
+            grade = 'C';
+        } else if (average >= 60) {
+            grade = 'D';
+        } else {
+            grade = 'F';
+        }
+        System.out.println("\nResults:");
+        System.out.println("Average Score: " + average);
+        System.out.println("Grade: " + grade);
+
+        scanner.close();
+    }
+}
+OUTPUT:
+Student Grade Calculator
+Enter the score for Subject 1: 98
+Enter the score for Subject 2: 95
+Enter the score for Subject 3: 92
+
+Results:
+Average Score: 95.0
+Grade: A
